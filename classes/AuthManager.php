@@ -1,6 +1,6 @@
 <?php
 
-namespace JD\DingoApi\Classes;
+namespace Raomingchao\DingoApi\Classes;
 
 use RainLab\User\Classes\AuthManager as AuthManagerBase;
 

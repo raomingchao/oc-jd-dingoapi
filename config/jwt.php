@@ -155,7 +155,7 @@ return [
         |
         */
 
-        'auth' => 'JD\DingoApi\Providers\Auth\IlluminateAuthAdapter',
+        'auth' => 'Raomingchao\DingoApi\Providers\Auth\IlluminateAuthAdapter',
 
         /*
         |--------------------------------------------------------------------------

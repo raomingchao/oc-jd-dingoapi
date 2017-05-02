@@ -1,6 +1,6 @@
 <?php
 
-namespace JD\DingoApi\Providers\Auth;
+namespace Raomingchao\DingoApi\Providers\Auth;
 
 use RainLab\User\Classes\AuthManager;
 use Illuminate\Foundation\Application;

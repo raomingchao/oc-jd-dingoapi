@@ -1,4 +1,4 @@
-<?php namespace JD\DingoApi;
+<?php namespace Raomingchao\DingoApi;
 
 use Backend;
 use RainLab\User\Models\User;
@@ -40,7 +40,7 @@ class Plugin extends PluginBase
         $this->app->register(\Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class);
         
         $this->app->singleton('jd.dingoapi.auth', function() {
-            return \JD\DingoApi\Classes\AuthManager::instance();
+            return \Raomingchao\DingoApi\Classes\AuthManager::instance();
         });
 
         $alias = AliasLoader::getInstance();
