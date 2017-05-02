@@ -22,10 +22,10 @@ class Plugin extends PluginBase
     public function pluginDetails()
     {
         return [
-            'name'        => 'DingoApi',
-            'description' => 'Dingo API implemention with RainLab.User',
-            'author'      => 'JD',
-            'icon'        => 'icon-leaf'
+          'name'        => 'DingoApi',
+          'description' => 'Dingo API implemention with RainLab.User',
+          'author'      => 'raomingchao',
+          'icon'        => 'icon-leaf'
         ];
     }
 
@@ -36,10 +36,14 @@ class Plugin extends PluginBase
      */
     public function register()
     {
+
+        $this->app['config']['jwt'] = require __DIR__ . '/config/jwt.php';
+        $this->app['config']['api'] = require __DIR__ . '/config/api.php';
+
         $this->app->register(\Dingo\Api\Provider\LaravelServiceProvider::class);
         $this->app->register(\Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class);
-        
-        $this->app->singleton('jd.dingoapi.auth', function() {
+
+        $this->app->singleton('raomingchao.dingoapi.auth', function () {
             return \Raomingchao\DingoApi\Classes\AuthManager::instance();
         });
 
@@ -47,8 +51,6 @@ class Plugin extends PluginBase
         $alias->alias('JWTAuth', \Tymon\JWTAuth\Facades\JWTAuth::class);
         $alias->alias('JWTFactory', \Tymon\JWTAuth\Facades\JWTFactory::class);
 
-        $this->app['config']['jwt'] = require __DIR__ . '/config/jwt.php';
-        $this->app['config']['api'] = require __DIR__ . '/config/api.php';
     }
 
     /**
@@ -60,7 +62,6 @@ class Plugin extends PluginBase
     {
         $this->app['router']->middleware('jwt.auth', '\Tymon\JWTAuth\Middleware\GetUserFromToken');
         $this->app['router']->middleware('jwt.refresh', '\Tymon\JWTAuth\Middleware\RefreshToken');
-
         $this->app['Dingo\Api\Auth\Auth']->extend('jwt', function ($app) {
             return new \Dingo\Api\Auth\Provider\JWT($app['Tymon\JWTAuth\JWTAuth']);
         });

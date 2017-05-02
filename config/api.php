@@ -15,6 +15,7 @@ return [
     | By default the Unregistered tree (x) is used, however, should you wish
     | to you can register your type with the IANA. For more details:
     | https://tools.ietf.org/html/rfc6838
+    | https://github.com/dingo/api/wiki/Configuration
     |
     */
 
@@ -137,11 +138,11 @@ return [
     */
 
     'errorFormat' => [
-        'message' => ':message',
-        'errors' => ':errors',
-        'code' => ':code',
-        'status_code' => ':status_code',
-        'debug' => ':debug',
+      'message'     => ':message',
+      'errors'      => ':errors',
+      'code'        => ':code',
+      'status_code' => ':status_code',
+      'debug'       => ':debug',
     ],
 
     /*
@@ -154,7 +155,7 @@ return [
     */
 
     'middleware' => [
-      
+
     ],
 
     /*
@@ -167,9 +168,7 @@ return [
     |
     */
 
-    'auth' => [
-    
-    ],
+    'auth' => [],
 
     /*
     |--------------------------------------------------------------------------
@@ -215,7 +214,7 @@ return [
 
     'formats' => [
 
-        'json' => Dingo\Api\Http\Response\Format\Json::class,
+      'json' => Dingo\Api\Http\Response\Format\Json::class,
 
     ],
 

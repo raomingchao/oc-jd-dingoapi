@@ -10,7 +10,7 @@ class IlluminateAuthAdapter extends IlluminateAuthAdapterBase {
 
     public function __construct(Application $app)
     {
-    	$this->auth = $app['jd.dingoapi.auth'];
+    	$this->auth = $app['raomingchao.dingoapi.auth'];
     }
 
     public function once(array $credentials)
